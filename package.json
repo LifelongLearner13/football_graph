@@ -1,0 +1,8 @@
+{
+  "name": "football_graph",
+  "version": "1.0.0",
+  "description": "Solution to a data visualization assignment for the Data Mining specialization on Coursera.",
+  "devDependencies": {
+    "jslint": "^0.11.0"
+  }
+}
