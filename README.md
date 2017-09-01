@@ -2,7 +2,7 @@
 
 ## Description
 
-Solution to a data visualization assignment for the [Data Mining](https://www.coursera.org/specializations/data-mining) specialization on Coursera. 
+Solution to a data visualization assignment for the [Data Mining](https://www.coursera.org/specializations/data-mining) specialization on Coursera.
 
 ## Data Source
 
