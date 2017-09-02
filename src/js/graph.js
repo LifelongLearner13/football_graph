@@ -131,6 +131,9 @@ function directed_graph(svgContainer) {
     if(!_isHighlighted) {
       _isHighlighted = true;
 
+      // Return the selection form to the 'None' option
+      _filterSelector.property('selectedIndex', 0);
+
       _links.style("opacity", function (o) {
         return d.index == o.source.index | d.index === o.target.index ? 1 : 0.1;
       });
@@ -156,6 +159,10 @@ function directed_graph(svgContainer) {
   function onSelectChange(d) {
     if(d3.event.type === 'change') {
       var e = d3.event;
+
+      if(_isHighlighted) {
+        unHighlightNodes();
+      }
 
       if(!e.target.value) {
         _nodes.style('opacity', 1);
