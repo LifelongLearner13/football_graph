@@ -4,6 +4,8 @@ function directed_graph(svgContainer) {
   var _svg,
       _width = 960, _height = 600,
       _simulation = d3.forceSimulation(),
+      _isHighlighted = false, // Is a node and it's children highlighted
+      _listOfLinks = {}, // Tracks what each node is linked to
       _r = 5, _colors = d3.scaleOrdinal(d3.schemeCategory20c),
       _nodes, _links,
       _graphData;
@@ -16,7 +18,8 @@ function directed_graph(svgContainer) {
 
   _chart.render = function() {
     _svg.attr('height', _height)
-        .attr('width', _width);
+        .attr('width', _width)
+        .on('dblclick', unHighlightNodes);
     
     _simulation.force('link', 
         d3.forceLink().id(function(d) { return d.id; }))
@@ -49,6 +52,7 @@ function directed_graph(svgContainer) {
       .enter().append('circle')
         .attr('r', _r)
         .attr('fill', function(d) { return _colors(d.value); })
+      .on('dblclick', highlightNodes)
       .call(d3.drag()
         .on("start", dragStarted)
         .on("drag", dragged)
@@ -102,6 +106,53 @@ function directed_graph(svgContainer) {
     d.fy = null;
   }
 
+  function generateListOfLinks() {
+    var temp = {};
+
+    // All nodes are linked to themselves
+    for(i = 0; i < _graphData.nodes.length; i++) {
+      temp[i + ',' + i] = true;
+    }
+
+    // All links the a nodes direct children
+    _graphData.links.forEach(function(el) {
+      temp[el.source + ',' + el.target] = true;      
+    }, this);
+    _listOfLinks = temp;
+  }
+
+  function neighboring(a, b) {
+    return _listOfLinks[a.id + "," + b.id];
+  }
+
+  function highlightNodes(d) {
+    d3.event.stopPropagation();
+
+    if(!_isHighlighted) {
+      _isHighlighted = true;
+
+      _links.style("opacity", function (o) {
+        return d.index == o.source.index | d.index === o.target.index ? 1 : 0.1;
+      });
+
+      _nodes.style("opacity", function (o) {
+        return neighboring(d, o) || neighboring(o, d) ? 1 : 0.1;
+      });
+
+    } else {
+      unHighlightNodes();
+    }
+  }
+
+  function unHighlightNodes(d) {
+    console.log(d)
+    if(_isHighlighted) {
+      _isHighlighted = false;
+      _nodes.style("opacity", 1);
+      _links.style("opacity", 1);
+    }
+  }
+
   _chart.width = function(w) {
     if(!arguments.length) {
       return _width;
@@ -142,8 +193,9 @@ function directed_graph(svgContainer) {
     if(!arguments.length) {
       return _graphData;
     }
-
+    
     _graphData = gd;
+    generateListOfLinks();
     return _chart;
   }
 
