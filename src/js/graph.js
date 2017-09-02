@@ -1,7 +1,7 @@
 function directed_graph(svgContainer) {
   var _chart = {};
 
-  var _svg,
+  var _svg, _filterSelector,
       _width = 960, _height = 600,
       _simulation = d3.forceSimulation(),
       _isHighlighted = false, // Is a node and it's children highlighted
@@ -153,6 +153,39 @@ function directed_graph(svgContainer) {
     }
   }
 
+  function onSelectChange(d) {
+    if(d3.event.type === 'change') {
+      var e = d3.event;
+
+      if(!e.target.value) {
+        _nodes.style('opacity', 1);
+        _links.style('opacity', 1);
+      } else {
+        filterBy(e.target.value);
+      }
+    }
+  }
+
+  function filterBy(filter) {
+    var hiddenNodeIds = [];
+
+    var hiddenNodes = _nodes.filter(function (d, i) {
+      if(d.value !== filter) {
+        hiddenNodeIds.push(d.index);
+        return true;
+      }
+      return false;
+    });
+
+    var hiddenLinks = _links.filter(function(d, i) {
+      return hiddenNodeIds.indexOf(d.source.index) >= 0 || 
+        hiddenNodeIds.indexOf(d.target.index) >= 0; 
+    });
+
+    hiddenNodes.style('opacity', 0);
+    hiddenLinks.style('opacity', 0);
+  }
+
   _chart.width = function(w) {
     if(!arguments.length) {
       return _width;
@@ -187,7 +220,7 @@ function directed_graph(svgContainer) {
 
     _colors = c;
     return _chart;
-  }
+  };
 
   _chart.data = function(gd) {
     if(!arguments.length) {
@@ -197,7 +230,19 @@ function directed_graph(svgContainer) {
     _graphData = gd;
     generateListOfLinks();
     return _chart;
-  }
+  };
+
+  _chart.filterSelector = function(s) {
+    if(!arguments.length) {
+      return _filterSelector;
+    }
+
+    _filterSelector = s;
+
+    _filterSelector.on('change', onSelectChange);
+
+    return _chart;
+  };
 
   return _chart;
 }
@@ -227,7 +272,7 @@ function renderSelection(container, id, content) {
   container.appendChild(selectList);
   
   var option = document.createElement('option');
-  option.value = 'none';
+  option.value = '';
   option.text = 'None';
   selectList.appendChild(option);
 
@@ -246,6 +291,7 @@ d3.json('data/football.json', function(error, graph) {
     uniqueConference(graph.nodes));
 
   var dg = directed_graph(d3.select('#graph-container'))
+            .filterSelector(d3.select('#select-conference'))
             .data(graph);
 
   dg.render();
