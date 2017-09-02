@@ -43,17 +43,21 @@ function directed_graph(svgContainer) {
 
   function renderData() {
     _nodes = _svg.append('g')
-      .attr('class', 'nodes')
+        .attr('class', 'nodes')
       .selectAll('circle')
       .data(_graphData.nodes)
       .enter().append('circle')
         .attr('r', _r)
         .attr('fill', function(d) { return _colors(d.value); })
+      .call(d3.drag()
+        .on("start", dragStarted)
+        .on("drag", dragged)
+        .on("end", dragEnded));
   }
 
   function renderLinks() {
     _links = _svg.append('g')
-      .attr('class', 'links')
+        .attr('class', 'links')
       .selectAll('line')
       .data(_graphData.links)
       .enter().append('line');
@@ -73,6 +77,29 @@ function directed_graph(svgContainer) {
         .attr('cy', function(d) { 
           return d.y = Math.max(_r, Math.min(_height - _r, d.y));
         });
+  }
+
+  function dragStarted(d) {
+    if (!d3.event.active) {
+      _simulation.alphaTarget(0.3).restart();
+    }
+
+    d.fx = d.x;
+    d.fy = d.y;
+  }
+  
+  function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+  }
+  
+  function dragEnded(d) {
+    if (!d3.event.active) {
+      _simulation.alphaTarget(0);
+    }
+
+    d.fx = null;
+    d.fy = null;
   }
 
   _chart.width = function(w) {
