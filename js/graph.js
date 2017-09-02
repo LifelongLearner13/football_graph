@@ -21,7 +21,8 @@ function directed_graph(svgContainer) {
     _simulation.force('link', 
         d3.forceLink().id(function(d) { return d.id; }))
       .force('charge', 
-        d3.forceManyBody())
+        d3.forceManyBody().strength(-40))
+      .force('collision', d3.forceCollide(_r).strength(1))
       .force('center', 
         d3.forceCenter(_width / 2, _height / 2));
 
@@ -66,8 +67,12 @@ function directed_graph(svgContainer) {
         .attr('y2', function(d) { return d.target.y; });
     
     _nodes
-        .attr('cx', function(d) { return d.x; })
-        .attr('cy', function(d) { return d.y; });
+        .attr('cx', function(d) { 
+          return d.x = Math.max(_r, Math.min(_width - _r, d.x)); 
+        })
+        .attr('cy', function(d) { 
+          return d.y = Math.max(_r, Math.min(_height - _r, d.y));
+        });
   }
 
   _chart.width = function(w) {
