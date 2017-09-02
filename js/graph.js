@@ -202,7 +202,49 @@ function directed_graph(svgContainer) {
   return _chart;
 }
 
+function uniqueConference(arr) {
+  var hash = {};
+  var newArr = [];
+
+  for(var i = 0; i < arr.length; i++) {
+    if(!hash[arr[i].value]) {
+      hash[arr[i].value] = arr[i].value;
+      newArr.push(arr[i].value);
+    }
+  }
+
+  return newArr.sort();
+}
+
+function renderSelection(container, id, content) {
+  var label = document.createElement('label');
+  label.innerHTML = 'Sort by Conference:'
+  label.htmlFor = id;
+  container.appendChild(label);
+
+  var selectList = document.createElement('select');
+  selectList.id = id;
+  container.appendChild(selectList);
+  
+  var option = document.createElement('option');
+  option.value = 'none';
+  option.text = 'None';
+  selectList.appendChild(option);
+
+  for(var i = 0; i < content.length; i++) {
+    option = document.createElement('option');
+    option.value = content[i];
+    option.text = content[i];
+    selectList.appendChild(option);
+  }
+}
+
 d3.json('data/football.json', function(error, graph) {
+  renderSelection(
+    document.getElementById('graph-container'),
+    'select-conference',
+    uniqueConference(graph.nodes));
+
   var dg = directed_graph(d3.select('#graph-container'))
             .data(graph);
 
