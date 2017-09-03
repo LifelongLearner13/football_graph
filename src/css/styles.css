@@ -1,3 +1,7 @@
+body {
+  padding: 10px;
+}
+
 #graph-container {
   display: block;
   margin: 0 auto;
@@ -46,5 +50,9 @@ div.tooltip {
 }
 
 span.label {
+  font-weight: bold;
+}
+
+.bold {
   font-weight: bold;
 }
