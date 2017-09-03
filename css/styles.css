@@ -3,6 +3,21 @@
   margin: 0 auto;
 }
 
+#select-div {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#graph-title {
+  text-align: center;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+}
+
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;

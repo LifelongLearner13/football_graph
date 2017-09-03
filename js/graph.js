@@ -331,15 +331,29 @@ function uniqueConference(arr) {
   return newArr.sort();
 }
 
+function renderTitle(container, content) {
+  var containDiv = document.createElement('div');
+  containDiv.id = 'graph-title';
+  container.appendChild(containDiv);
+
+  var title = document.createElement('h2');
+  title.innerHTML = content;
+  containDiv.appendChild(title);
+}
+
 function renderSelection(container, id, content) {
+  var containDiv = document.createElement('div');
+  containDiv.id = 'select-div'
+  container.appendChild(containDiv);
+
   var label = document.createElement('label');
   label.innerHTML = 'Sort by Conference:'
   label.htmlFor = id;
-  container.appendChild(label);
+  containDiv.appendChild(label);
 
   var selectList = document.createElement('select');
   selectList.id = id;
-  container.appendChild(selectList);
+  containDiv.appendChild(selectList);
   
   var option = document.createElement('option');
   option.value = '';
@@ -355,6 +369,11 @@ function renderSelection(container, id, content) {
 }
 
 d3.json('data/football.json', function(error, graph) {
+  renderTitle(
+    document.getElementById('graph-container'),
+    'American College Football Games from 2000',
+  );
+
   renderSelection(
     document.getElementById('graph-container'),
     'select-conference',
