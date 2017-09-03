@@ -21,6 +21,11 @@ body {
   display: block;
 }
 
+.courier {
+  font-family: 'courier';
+  background-color: #DEDCDC;
+}
+
 #graph-container {
   display: block;
   margin: 0 auto;
