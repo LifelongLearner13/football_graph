@@ -383,6 +383,10 @@ function renderInstructions(container) {
 
   var list = document.createElement('ul');
 
+  var hover = document.createElement('li');
+  hover.innerHTML = '<span class="bold">Hover</span> over a node to see the school\'s name and the conference.';
+  list.appendChild(hover);
+  
   var dbClick = document.createElement('li');
   dbClick.innerHTML = '<span class="bold">Double click</span> a node to see all the games ' +
     'that school played. Double click again, to return to the normal view.';
