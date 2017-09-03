@@ -1,11 +1,16 @@
+#graph-container {
+  display: block;
+  margin: 0 auto;
+}
+
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
 }
 
 .nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
+  stroke: #000000;
+  stroke-width: 0.5px;
 }
 
 div.tooltip {
@@ -15,7 +20,7 @@ div.tooltip {
   height: 60px;
   padding: 1px;
   font: 12px sans-serif;
-  background: lightsteelblue;
+  background: #BBC4C7;
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
@@ -23,4 +28,8 @@ div.tooltip {
 
 .legend-row {
   font: 12px sans-serif;
+}
+
+span.label {
+  font-weight: bold;
 }
