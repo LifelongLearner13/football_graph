@@ -368,6 +368,10 @@ function renderSelection(container, id, content) {
   }
 }
 
+function renderInstructions(container) {
+  
+}
+
 d3.json('data/football.json', function(error, graph) {
   renderTitle(
     document.getElementById('graph-container'),
