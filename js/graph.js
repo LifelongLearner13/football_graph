@@ -255,7 +255,6 @@
     }
 
     function genTooltipHTML(name, conference) {
-      console.log(name)
       return '<p class="school"> <span class="label">School: </span> ' + 
         name + 
         '</p> <p class="school"> <span class="label">Conference:</span> ' + 
