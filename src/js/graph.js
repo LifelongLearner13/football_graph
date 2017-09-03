@@ -1,20 +1,25 @@
 function directed_graph(svgContainer) {
   var _chart = {};
 
-  var _svg, _filterSelector,
+  var _svg, _tooltip, _filterSelector,
       _width = 960, _height = 600,
       _simulation = d3.forceSimulation(),
       _isHighlighted = false, // Is a node and it's children highlighted
       _listOfLinks = {}, // Tracks what each node is linked to
-      _r = 5, _colors = d3.scaleOrdinal(d3.schemeCategory20c),
+      _r = 8, _colors = d3.scaleOrdinal(d3.schemeCategory20c),
       _nodes, _links,
       _graphData;
 
   if(svgContainer) {
+    _tooltip = svgContainer.append('div');
     _svg = svgContainer.append('svg');
   } else {
+    _tooltip = d3.select('body').append('div');
     _svg = d3.select('body').append('svg');
   }
+
+  _tooltip.attr('class', 'tooltip')
+          .style('opacity', 0);
 
   _chart.render = function() {
     _svg.attr('height', _height)
@@ -52,6 +57,22 @@ function directed_graph(svgContainer) {
       .enter().append('circle')
         .attr('r', _r)
         .attr('fill', function(d) { return _colors(d.value); })
+      .on('mouseover', function(d) {
+        var node = d3.select(this);
+        if(node.style('opacity') == 1) {
+          _tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+          _tooltip.html(genTooltipHTML(d.label, d.value))
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 60) + "px");
+        }
+      })
+      .on('mouseout', function(d) {
+        _tooltip.transition()
+          .duration(500)
+          .style('opacity', 0);
+      })
       .on('dblclick', highlightNodes)
       .call(d3.drag()
         .on("start", dragStarted)
@@ -191,6 +212,13 @@ function directed_graph(svgContainer) {
 
     hiddenNodes.style('opacity', 0);
     hiddenLinks.style('opacity', 0);
+  }
+
+  function genTooltipHTML(name, conference) {
+    return '<p class="school"> <span class="label">School: </span> ' + 
+      name + 
+      '</p> <p class="school"> <span class="label">Conference:</span> ' + 
+      conference + '</p>'
   }
 
   _chart.width = function(w) {
