@@ -44,7 +44,7 @@ def clean_json(data):
     name to the data and place spaces, when appropriate, in University names.
     """
     for node in data['nodes']:
-        node['label'] = re.sub(r'\B([A-Z])[^A-Z]', r' \1', node['label'])
+        node['label'] = re.sub(r'\B([A-Z])([^A-Z])', r' \1\2', node['label'])
         node['value'] = CONFERENCES[node['value']]
 
 def convert_to_json(data):

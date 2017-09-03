@@ -1,12 +1,12 @@
 {
   "nodes": [
     {
-      "label": "Brigham Yung",
+      "label": "Brigham Young",
       "value": "Mountain West",
       "id": 0
     },
     {
-      "label": "Florida Sate",
+      "label": "Florida State",
       "value": "Atlantic Coast",
       "id": 1
     },
@@ -16,37 +16,37 @@
       "id": 2
     },
     {
-      "label": "Kansas Sate",
+      "label": "Kansas State",
       "value": "Big Twelve",
       "id": 3
     },
     {
-      "label": "New Mxico",
+      "label": "New Mexico",
       "value": "Mountain West",
       "id": 4
     },
     {
-      "label": "Texas Tch",
+      "label": "Texas Tech",
       "value": "Big Twelve",
       "id": 5
     },
     {
-      "label": "Penn Sate",
+      "label": "Penn State",
       "value": "Big Ten",
       "id": 6
     },
     {
-      "label": "Southern Clifornia",
+      "label": "Southern California",
       "value": "Pacific Ten",
       "id": 7
     },
     {
-      "label": "Arizona Sate",
+      "label": "Arizona State",
       "value": "Pacific Ten",
       "id": 8
     },
     {
-      "label": "San Dego Sate",
+      "label": "San Diego State",
       "value": "Mountain West",
       "id": 9
     },
@@ -56,12 +56,12 @@
       "id": 10
     },
     {
-      "label": "North Txas",
+      "label": "North Texas",
       "value": "Sun Belt",
       "id": 11
     },
     {
-      "label": "Northern Ilinois",
+      "label": "Northern Illinois",
       "value": "Mid-American",
       "id": 12
     },
@@ -96,7 +96,7 @@
       "id": 18
     },
     {
-      "label": "Virginia Tch",
+      "label": "Virginia Tech",
       "value": "Big East",
       "id": 19
     },
@@ -121,17 +121,17 @@
       "id": 23
     },
     {
-      "label": "Arkansas Sate",
+      "label": "Arkansas State",
       "value": "Sun Belt",
       "id": 24
     },
     {
-      "label": "North Crolina Sate",
+      "label": "North Carolina State",
       "value": "Atlantic Coast",
       "id": 25
     },
     {
-      "label": "Ball Sate",
+      "label": "Ball State",
       "value": "Mid-American",
       "id": 26
     },
@@ -141,22 +141,22 @@
       "id": 27
     },
     {
-      "label": "Boise Sate",
+      "label": "Boise State",
       "value": "Western Athletic",
       "id": 28
     },
     {
-      "label": "Boston Cllege",
+      "label": "Boston College",
       "value": "Big East",
       "id": 29
     },
     {
-      "label": "West Vrginia",
+      "label": "West Virginia",
       "value": "Big East",
       "id": 30
     },
     {
-      "label": "Bowling Geen Sate",
+      "label": "Bowling Green State",
       "value": "Mid-American",
       "id": 31
     },
@@ -181,17 +181,17 @@
       "id": 35
     },
     {
-      "label": "Central Forida",
+      "label": "Central Florida",
       "value": "Independents",
       "id": 36
     },
     {
-      "label": "Georgia Tch",
+      "label": "Georgia Tech",
       "value": "Atlantic Coast",
       "id": 37
     },
     {
-      "label": "Central Mchigan",
+      "label": "Central Michigan",
       "value": "Mid-American",
       "id": 38
     },
@@ -206,7 +206,7 @@
       "id": 40
     },
     {
-      "label": "Colorado Sate",
+      "label": "Colorado State",
       "value": "Mountain West",
       "id": 41
     },
@@ -216,12 +216,12 @@
       "id": 42
     },
     {
-      "label": "Eastern Mchigan",
+      "label": "Eastern Michigan",
       "value": "Mid-American",
       "id": 43
     },
     {
-      "label": "East Crolina",
+      "label": "East Carolina",
       "value": "Conference USA",
       "id": 44
     },
@@ -231,12 +231,12 @@
       "id": 45
     },
     {
-      "label": "Fresno Sate",
+      "label": "Fresno State",
       "value": "Western Athletic",
       "id": 46
     },
     {
-      "label": "Ohio Sate",
+      "label": "Ohio State",
       "value": "Big Ten",
       "id": 47
     },
@@ -266,7 +266,7 @@
       "id": 52
     },
     {
-      "label": "Southern Mthodist",
+      "label": "Southern Methodist",
       "value": "Western Athletic",
       "id": 53
     },
@@ -291,12 +291,12 @@
       "id": 57
     },
     {
-      "label": "Louisiana Tch",
+      "label": "Louisiana Tech",
       "value": "Western Athletic",
       "id": 58
     },
     {
-      "label": "Louisiana Mnroe",
+      "label": "Louisiana Monroe",
       "value": "Sun Belt",
       "id": 59
     },
@@ -306,7 +306,7 @@
       "id": 60
     },
     {
-      "label": "Miami Oio",
+      "label": "Miami Ohio",
       "value": "Mid-American",
       "id": 61
     },
@@ -316,7 +316,7 @@
       "id": 62
     },
     {
-      "label": "Middle Tnnessee Sate",
+      "label": "Middle Tennessee State",
       "value": "Sun Belt",
       "id": 63
     },
@@ -326,7 +326,7 @@
       "id": 64
     },
     {
-      "label": "Mississippi Sate",
+      "label": "Mississippi State",
       "value": "Southeastern",
       "id": 65
     },
@@ -346,12 +346,12 @@
       "id": 68
     },
     {
-      "label": "New Mxico Sate",
+      "label": "New Mexico State",
       "value": "Sun Belt",
       "id": 69
     },
     {
-      "label": "South Crolina",
+      "label": "South Carolina",
       "value": "Southeastern",
       "id": 70
     },
@@ -361,12 +361,12 @@
       "id": 71
     },
     {
-      "label": "Iowa Sate",
+      "label": "Iowa State",
       "value": "Big Twelve",
       "id": 72
     },
     {
-      "label": "San Jse Sate",
+      "label": "San Jose State",
       "value": "Western Athletic",
       "id": 73
     },
@@ -376,7 +376,7 @@
       "id": 74
     },
     {
-      "label": "Southern Mssissippi",
+      "label": "Southern Mississippi",
       "value": "Conference USA",
       "id": 75
     },
@@ -391,7 +391,7 @@
       "id": 77
     },
     {
-      "label": "Washington Sate",
+      "label": "Washington State",
       "value": "Pacific Ten",
       "id": 78
     },
@@ -406,17 +406,17 @@
       "id": 80
     },
     {
-      "label": "Texas AM",
+      "label": "Texas A&M",
       "value": "Big Twelve",
       "id": 81
     },
     {
-      "label": "Notre Dme",
+      "label": "Notre Dame",
       "value": "Independents",
       "id": 82
     },
     {
-      "label": "Texas E Pso",
+      "label": "Texas El Paso",
       "value": "Western Athletic",
       "id": 83
     },
@@ -446,12 +446,12 @@
       "id": 88
     },
     {
-      "label": "North Crolina",
+      "label": "North Carolina",
       "value": "Atlantic Coast",
       "id": 89
     },
     {
-      "label": "Utah Sate",
+      "label": "Utah State",
       "value": "Independents",
       "id": 90
     },
@@ -466,7 +466,7 @@
       "id": 92
     },
     {
-      "label": "Air Frce",
+      "label": "Air Force",
       "value": "Mountain West",
       "id": 93
     },
@@ -481,12 +481,12 @@
       "id": 95
     },
     {
-      "label": "Louisiana Sate",
+      "label": "Louisiana State",
       "value": "Southeastern",
       "id": 96
     },
     {
-      "label": "Louisiana Lfayette",
+      "label": "Louisiana Lafayette",
       "value": "Sun Belt",
       "id": 97
     },
@@ -501,12 +501,12 @@
       "id": 99
     },
     {
-      "label": "Michigan Sate",
+      "label": "Michigan State",
       "value": "Big Ten",
       "id": 100
     },
     {
-      "label": "Miami Forida",
+      "label": "Miami Florida",
       "value": "Big East",
       "id": 101
     },
@@ -521,12 +521,12 @@
       "id": 103
     },
     {
-      "label": "Nevada Ls Vgas",
+      "label": "Nevada Las Vegas",
       "value": "Mountain West",
       "id": 104
     },
     {
-      "label": "Wake Frest",
+      "label": "Wake Forest",
       "value": "Atlantic Coast",
       "id": 105
     },
@@ -536,12 +536,12 @@
       "id": 106
     },
     {
-      "label": "Oklahoma Sate",
+      "label": "Oklahoma State",
       "value": "Big Twelve",
       "id": 107
     },
     {
-      "label": "Oregon Sate",
+      "label": "Oregon State",
       "value": "Pacific Ten",
       "id": 108
     },
@@ -551,7 +551,7 @@
       "id": 109
     },
     {
-      "label": "Texas Cristian",
+      "label": "Texas Christian",
       "value": "Conference USA",
       "id": 110
     },
@@ -561,7 +561,7 @@
       "id": 111
     },
     {
-      "label": "Alabama Brmingham",
+      "label": "Alabama Birmingham",
       "value": "Conference USA",
       "id": 112
     },
