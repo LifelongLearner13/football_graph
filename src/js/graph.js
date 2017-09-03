@@ -1,7 +1,7 @@
 function directed_graph(svgContainer) {
   var _chart = {};
 
-  var _svg, _tooltip, _filterSelector,
+  var _svg, _bodyG, _tooltip, _filterSelector,
       _width = 960, _height = 600,
       _simulation = d3.forceSimulation(),
       _isHighlighted = false, // Is a node and it's children highlighted
@@ -45,13 +45,18 @@ function directed_graph(svgContainer) {
   }
 
   function renderContent() {
+    if(!_bodyG) {
+      _bodyG = _svg.append('g');
+      _bodyG.attr('class', 'body-g');
+    }
+
     renderLinks();
     renderData();
     renderLegend();
   }
 
   function renderData() {
-    _nodes = _svg.append('g')
+    _nodes = _bodyG.append('g')
         .attr('class', 'nodes')
       .selectAll('circle')
       .data(_graphData.nodes)
@@ -82,7 +87,7 @@ function directed_graph(svgContainer) {
   }
 
   function renderLinks() {
-    _links = _svg.append('g')
+    _links = _bodyG.append('g')
         .attr('class', 'links')
       .selectAll('line')
       .data(_graphData.links)
@@ -204,7 +209,6 @@ function directed_graph(svgContainer) {
   }
 
   function unHighlightNodes(d) {
-    console.log(d)
     if(_isHighlighted) {
       _isHighlighted = false;
       _nodes.style("opacity", 1);
@@ -369,17 +373,42 @@ function renderSelection(container, id, content) {
 }
 
 function renderInstructions(container) {
-  
+  var containDiv = document.createElement('div');
+  containDiv.id = 'instruct-div';
+  container.appendChild(containDiv);
+
+  var inst = document.createElement('h3');
+  inst.innerHTML = 'Interactions:';
+  containDiv.appendChild(inst);
+
+  var list = document.createElement('ul');
+
+  var dbClick = document.createElement('li');
+  dbClick.innerHTML = '<span class="bold">Double click</span> a node to see all the games ' +
+    'that school played. Double click again, to return to the normal view.';
+  list.appendChild(dbClick);
+
+  var drag = document.createElement('li');
+  drag.innerHTML = '<span class="bold">Click and drag</span> to move nodes around.'
+  list.appendChild(drag);
+
+  var filter = document.createElement('li');
+  filter.innerHTML = 'Use the <span class="bold">select menu</span> to filter by Conference.'
+  list.appendChild(filter);
+
+  containDiv.appendChild(list);
 }
 
 d3.json('data/football.json', function(error, graph) {
+  var graphContainer = document.getElementById('graph-container');
+
   renderTitle(
-    document.getElementById('graph-container'),
+    graphContainer,
     'American College Football Games from 2000',
   );
 
   renderSelection(
-    document.getElementById('graph-container'),
+    graphContainer,
     'select-conference',
     uniqueConference(graph.nodes));
 
@@ -388,4 +417,6 @@ d3.json('data/football.json', function(error, graph) {
             .data(graph);
 
   dg.render();
+
+  renderInstructions(graphContainer);
 });
