@@ -220,10 +220,10 @@ function directed_graph(svgContainer) {
         unHighlightNodes();
       }
 
-      if(!e.target.value) {
-        _nodes.style('opacity', 1);
-        _links.style('opacity', 1);
-      } else {
+      _nodes.style('opacity', 1);
+      _links.style('opacity', 1);
+
+      if(e.target.value) {
         filterBy(e.target.value);
       }
     }
