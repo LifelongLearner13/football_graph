@@ -2,6 +2,25 @@ body {
   padding: 10px;
 }
 
+.hidden {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.icon {
+  display: inline-block;
+  text-align: center;
+}
+
+.icon img {
+  height: auto;
+  display: block;
+}
+
 #graph-container {
   display: block;
   margin: 0 auto;
