@@ -12,7 +12,30 @@
 
 <body>
   <h1>Data Visualization: Programming Assignment 2</h1>
-  <section id="graph-container"></section>
+  <section aria-hidden="true" id="graph-container"></section>
+  <p class="hidden">Interactive force graph shows American college football games from 2000.</p>
+  <section>
+    <h2>Explanation</h2>
+    <p>The graph depicts college football games played in 2000. Each node represents a university, and the edges indicate games. For this assignment, I wanted to explore how interactions could be used to enhance a graph. I chose the football data set for two reasons. First, the 2017 college football season is just starting, so it was interesting to see how conferences have changed over the years. Second, due to the data set's modest size, I could focus on adding interactions, without worrying too much about latency.</p>
+    <p>Overall it's difficult to follow edges, so I added filtering by school and conference. These filters allow users to explore sections of the graph making it easier to differentiate connections.</p>
+    <p>For the most part, the nodes naturally grouped up according to their conference. The number of games a school played outside of their conference varied, but every school played at least one.</p>
+    <h2>Data Source</h2>
+    <p>University of California Network Data Repository. (2017). American College Football [Data File]. From <a href="https://networkdata.ics.uci.edu/data.php?id=5">https://networkdata.ics.uci.edu/data.php?id=5</a></p>
+    <h2>Modifications Made to Original Data File</h2>
+    <p>NetworkX, a Python package, was used to convert the original Graph Modelling Language (GML) into JavaScript Object Notation (JSON). In order to facilitate parsing <span class="courier">multigraph 1</span> was added to the header of the downloaded GML data file.</p>
+    <h2>Technologies Used</h2>
+    <a class="icon" href="https://www.python.org/"><img alt="Python" width="150px" src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" /></a>
+    <a class="icon" href="https://d3js.org/"><img alt="D3 dote JS" width="50px" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Logo_D3.svg/1079px-Logo_D3.svg.png" /></a>
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="http://zeroviscosity.com/d3-js-step-by-step/step-3-adding-a-legend">D3.js Step by Step: Adding a Legend</a> by Zero Viscosity</li>
+      <li><a href="http://www.puzzlr.org/force-graphs-with-d3/">Force Directed Graphs with d3 version 4</a> by puzzlr</li>
+      <li><a href="https://bost.ocks.org/mike/chart/">Towards Reusable Charts</a> by Mike Bostock</li>
+      <li><a href="http://www.coppelia.io/2014/07/an-a-to-z-of-extra-features-for-the-d3-force-layout/">An A to Z of Extra Features for the D3 Force Layout</a> by Simon Raper</li>
+      <li><a href="https://bl.ocks.org/mbostock/4062045">Force-Directed Graph</a> by Mike Bostock</li>
+      <li><a href="https://bl.ocks.org/d3noob/257c360b3650b9f0a52dd8257d7a2d73">Simple tooltips in v4</a> by d3noob</li>
+    </ul>
+  </section>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="js/graph.js"></script>
 </body>
