@@ -6,8 +6,8 @@ function directed_graph(svgContainer) {
       _simulation = d3.forceSimulation(),
       _isHighlighted = false, // Is a node and it's children highlighted
       _listOfLinks = {}, // Tracks what each node is linked to
-      _r = 8, _colors = d3.scaleOrdinal(d3.schemeCategory20c),
-      _nodes, _links,
+      _r = 8, _colors = d3.scaleOrdinal(d3.schemeCategory20b),
+      _nodes, _links, _legendRectSize = 18, _legendSpacing = 4,
       _graphData;
 
   if(svgContainer) {
@@ -47,6 +47,7 @@ function directed_graph(svgContainer) {
   function renderContent() {
     renderLinks();
     renderData();
+    renderLegend();
   }
 
   function renderData() {
@@ -86,6 +87,40 @@ function directed_graph(svgContainer) {
       .selectAll('line')
       .data(_graphData.links)
       .enter().append('line');
+  }
+
+  function renderLegend() {
+    var lContainer = _svg.append('g')
+        .attr('class', 'legend-container')
+        .attr('transform', function(d) {
+          var legRecHeight = _legendRectSize + _legendSpacing;
+          var totalVert = _colors.domain().length * legRecHeight;
+          // 100 is an arbitrary guess at the text width
+          var totalLHorz = _legendRectSize + (2 * _legendRectSize) + 100;
+          return 'translate(' + (_width - totalLHorz) +
+            ',' + (_height / 2 - (totalVert / 2) + ')')
+        });
+      
+    var lRows = lContainer.selectAll('.legend-row')
+      .data(_colors.domain())
+      .enter().append('g')
+        .attr('class', 'legend-row')
+        .attr('transform', function(d, i) {
+          var legRecHeight = _legendRectSize + _legendSpacing;
+          var vert = i * legRecHeight;
+          return 'translate(' + 0 + ',' + vert + ')';
+        });
+
+    lRows.append('rect')
+      .attr('width', _legendRectSize)
+      .attr('height', _legendRectSize)
+      .style('fill', _colors)
+      .style('stroke', _colors);
+
+    lRows.append('text')
+        .attr('x', _legendRectSize + _legendSpacing)
+        .attr('y', _legendRectSize - _legendSpacing)
+        .text(function(d) { return d; });
   }
 
   function tickActions() {
